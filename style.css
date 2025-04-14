@@ -1,0 +1,276 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e2f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #e0e0e0;
+    padding: 0;
+    user-select: none;
+}
+
+#canvas {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-top: 20px;
+    background-color: #2e2e3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#colorLabel {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #e0e0e0;
+}
+
+#copyButton,
+#resetButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#copyButton {
+    background-color: #007bff;
+    color: white;
+}
+
+#copyButton:hover {
+    background-color: #0056b3;
+}
+
+#resetButton {
+    background-color: #dc3545;
+    color: white;
+}
+
+#resetButton:hover {
+    background-color: #c82333;
+}
+/*--------------------------Upload-----------------------------*/
+.file-input-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.file-input-container label {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.file-input-container label:hover {
+    background-color: #0056b3;
+}
+
+.file-input-container input[type="file"] {
+    display: none;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*--------------------------------------Notification---------------------------------*/
+#notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    animation: fadeOut 4s forwards;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#progress {
+    height: 5px;
+    background-color: #28a745;
+    width: 100%;
+    animation: shrink 4s linear forwards;
+    border-radius: 0 0 10px 10px;
+}
+
+@keyframes shrink {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+.color-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/*----------------------Zoom---------------------------------------*/
+#zoom {
+    position: absolute;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    display: none;
+    pointer-events: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/*----------------------------------------OUT Settings--------------------------------------*/
+
+#settings {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    width: 350px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#settingsToggle {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    z-index: 1001;
+    transition: left 0.3s ease;
+}
+
+#settings.open {
+    left: 0;
+}
+
+#settings.open+#settingsToggle {
+    left: 390px;
+}
+
+
+/*---------------------IN Settings----------------------------------*/
+#settingsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#settingsHeader h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#settingsClose {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+#settingsClose:hover {
+    color: #007bff;
+}
+
+.settingSection {
+    margin-bottom: 20px;
+}
+
+.settingSection h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #007bff;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="number"],
+input[type="text"],
+input[type="color"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="color"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#saveChanges {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#saveChanges:hover {
+    background-color: #0056b3;
+}

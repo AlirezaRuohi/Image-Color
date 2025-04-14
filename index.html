@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="file-input-container">
+        <label for="upload">Choose File</label>
+        <input type="file" id="upload" accept="image/*">
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="colorLabel">Color : </div>
+    <button id="copyButton">Copy Color</button>
+    <button id="resetButton">Reset Color</button>
+    <div id="notification">
+        <div class="notification-content">
+            <div id="colorBox" class="color-box"></div>
+            <div id="notificationText">Color copied to clipboard!</div>
+        </div>
+        <div id="progress"></div>
+    </div>
+    <canvas id="zoom" width="100" height="100"></canvas>
+    <!----------------------------------------------------------Settings------------------------------------------------------>
+    <div id="settings">
+        <div id="settingsHeader">
+            <h3>Settings</h3>
+            <span id="settingsClose">&times;</span>
+        </div>
+
+        <div class="settingSection">
+            <h4>Notification Settings</h4>
+            <label for="duration">Display Duration (seconds):</label>
+            <input type="number" id="duration" value="4" min="1" max="10">
+
+            <label for="textColor">Text Color:</label>
+            <input type="color" id="textColor" value="#ffffff">
+
+            <label for="bgColor">Background Color:</label>
+            <input type="color" id="bgColor" value="#333333">
+
+            <label for="progressColor">Progress Bar Color:</label>
+            <input type="color" id="progressColor" value="#28a745">
+        </div>
+
+        <div class="settingSection">
+            <h4>Copy Button Settings</h4>
+            <label for="buttonSize">Button Size (width x height):</label>
+            <input type="text" id="buttonSize" placeholder="e.g., 150x50">
+
+            <label for="buttonTextSize">Text Size (px):</label>
+            <input type="number" id="buttonTextSize" value="16" min="10" max="30">
+
+            <label for="buttonTextColor">Button Text Color:</label>
+            <input type="color" id="buttonTextColor" value="#ffffff">
+
+            <label for="buttonBgColor">Button Background Color:</label>
+            <input type="color" id="buttonBgColor" value="#007bff">
+
+            <label for="buttonFont">Button Font Family:</label>
+            <input type="text" id="buttonFont" placeholder="e.g., Arial, sans-serif">
+        </div>
+        <div class="settingSection">
+            <h4>Reset Button Settings</h4>
+            <label for="resetButtonSize">Button Size (width x height):</label>
+            <input type="text" id="resetButtonSize" placeholder="e.g., 150x50">
+
+            <label for="resetButtonTextSize">Text Size (px):</label>
+            <input type="number" id="resetButtonTextSize" value="16" min="10" max="30">
+
+            <label for="resetButtonTextColor">Button Text Color:</label>
+            <input type="color" id="resetButtonTextColor" value="#ffffff">
+
+            <label for="resetButtonBgColor">Button Background Color:</label>
+            <input type="color" id="resetButtonBgColor" value="#dc3545">
+
+            <label for="resetButtonFont">Button Font Family:</label>
+            <input type="text" id="resetButtonFont" placeholder="e.g., Arial, sans-serif">
+        </div>
+        <div class="settingSection">
+            <h4>Image Settings</h4>
+            <label for="imageSize">Image Size (width x height):</label>
+            <input type="text" id="imageSize" placeholder="e.g., 150x50">
+
+            <label for="imageBrColor">image Border Color:</label>
+            <input type="color" id="imageBrColor" value="#ffffff">
+
+        </div>
+
+        <div class="settingSection">
+            <h4>Labl Color Settings</h4>
+            <label for="lablTextSize">Text Size (px):</label>
+            <input type="number" id="lablTextSize" value="18" min="10" max="30">
+
+            <label for="lablTextColor">Labl Text Color:</label>
+            <input type="color" id="lablTextColor" value="#e0e0e0">
+
+            <label for="lablBgColor">Labl Background Color:</label>
+            <input type="color" id="lablBgColor" value="#1e1e2f">
+
+            <label for="lablFont">Labl Font Family:</label>
+            <input type="text" id="lablFont" placeholder="e.g., Arial, sans-serif">
+
+        </div>
+        <hr>
+        <div class="settingSection">
+            <button id="saveChanges">Save Changes</button>
+            <br>
+        </div>
+    </div>
+    <div id="settingsToggle">&#9776;</div>
+    <!--                                                            Script                                                -->
+    <script src="app.js"></script>
+</body>
+
+</html>
